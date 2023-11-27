@@ -18,8 +18,11 @@ public class EmployeeService {
 //    @Autowired
 //    RestTemplate restTemplate;
 
+//      @Autowired
+//      WebClient webClient;
+
       @Autowired
-      WebClient webClient;
+      APIClient apiClient;
 
 
 
@@ -39,11 +42,13 @@ public class EmployeeService {
 //
 //        Department department=responseEntity.getBody();
 
-        Department department=webClient.get()
-                .uri("http://localhost:8080/api/department/"+employee.getDepartmentCode())
-                .retrieve()
-                .bodyToMono(Department.class)
-                .block();
+//        Department department=webClient.get()
+//                .uri("http://localhost:8080/api/department/"+employee.getDepartmentCode())
+//                .retrieve()
+//                .bodyToMono(Department.class)
+//                .block();
+
+        Department department= apiClient.getDepartmentByDepartmentCode(employee.getDepartmentCode());
 
         APIResponse apiResponse=new APIResponse();
         apiResponse.setEmployee(employee);
