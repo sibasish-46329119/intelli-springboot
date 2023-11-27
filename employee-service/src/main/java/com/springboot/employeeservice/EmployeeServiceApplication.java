@@ -4,15 +4,25 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
 public class EmployeeServiceApplication {
 
  // created the bean of RestTemplate so that it is available in IoC container to called whenever
+//	@Bean
+//	public RestTemplate restTemplate(){
+//		return new RestTemplate();
+//	}
+
+	// before we have to import webflux dependency in pom.xml file
 	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
+	public WebClient webClient(){
+		// returning the instance of Webclient
+		return WebClient.builder().build();
 	}
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeServiceApplication.class, args);
 	}
