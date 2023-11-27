@@ -1,5 +1,6 @@
 package com.springboot.employeeservice.controller;
 
+import com.springboot.employeeservice.entity.APIResponse;
 import com.springboot.employeeservice.entity.Employee;
 import com.springboot.employeeservice.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,8 @@ public class EmployeeController {
     }
     // get api method to find an employee by id
     @GetMapping("{id}")
-    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id){
-        Employee employee= employeeService.getEmployeeById(id);
-        return new ResponseEntity<>(employee,HttpStatus.OK);
+    public ResponseEntity<APIResponse> getEmployeeById(@PathVariable("id") Long id){
+        APIResponse apiResponse= employeeService.getEmployeeById(id);
+        return new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
 }
