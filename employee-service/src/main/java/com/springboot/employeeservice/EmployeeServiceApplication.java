@@ -10,7 +10,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
 @EnableFeignClients// this annotation will scan the interface annoted with @feignclient
-//@EnableDiscoveryClient from spring 3 no need to mention this annotation as it automatically consider it
+//@EnableDiscoveryClient from spring 3 no need to mention this annotation as it automatically consider it,
+@EnableDiscoveryClient
 public class EmployeeServiceApplication {
 
  // created the bean of RestTemplate so that it is available in IoC container to called whenever
